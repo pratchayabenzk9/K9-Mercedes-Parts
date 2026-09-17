@@ -1,0 +1,630 @@
+<!doctype html><html lang="th"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="K9 Auto Parts Mercedes-Benz Parts Catalog"><title>K9 Auto Parts — Mercedes Parts Catalog</title><style>*{box-sizing:border-box}body{margin:0;background:#070808;color:#eee;font:14px system-ui,-apple-system,Segoe UI,Arial,sans-serif}.app{display:grid;grid-template-columns:190px 1fr;min-height:100vh}aside{background:#090a0a;border-right:1px solid #2b2e2e;padding:18px 12px;position:sticky;top:0;height:100vh}.logo{font-weight:900;font-size:44px;color:#b7a15a;letter-spacing:-3px}.logo small{display:block;font-size:10px;letter-spacing:3px;color:#ddd;margin-top:6px}.nav{margin-top:28px;display:grid;gap:4px}.nav button{background:transparent;color:#aaa;border:0;text-align:left;padding:11px;border-radius:6px}.nav button:hover,.nav button.active{background:#32110d;color:#fff;border-left:3px solid #d64026}main{min-width:0}header{padding:14px 20px;border-bottom:1px solid #2b2e2e;background:#090a0a;position:sticky;top:0;z-index:5}.crumb{font-size:16px;margin-bottom:10px}.toolbar,.sectionbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.search{flex:1;min-width:220px;background:#111414;color:#fff;border:1px solid #353838;border-radius:7px;padding:12px}.select,.lang{background:#111414;color:#eee;border:1px solid #343737;padding:10px;border-radius:7px}.sectionbar{padding:12px 14px;border-bottom:1px solid #2b2e2e}.content{padding:14px;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(420px,.9fr);gap:14px}.panel{background:#101212;border:1px solid #2b2e2e;border-radius:9px;overflow:hidden}.panelhead{padding:14px 16px;border-bottom:1px solid #2b2e2e;display:flex;justify-content:space-between}.title{font:28px Georgia,serif}.sub{color:#9da3a3;margin-top:4px}.diagram{position:relative;background:#050606;min-height:500px;display:flex;align-items:center;justify-content:center;overflow:hidden}.diagram img{width:100%;display:block}.hot{position:absolute;inset:0}.hs{position:absolute;transform:translate(-50%,-50%);width:42px;height:42px;border-radius:50%;border:2px solid #d64026;background:#080909;color:#fff;font-weight:800;display:grid;place-items:center;box-shadow:0 0 0 2px #0008}.hs:hover,.hs.sel{background:#d64026;border-color:#fff}.empty{padding:100px 25px;text-align:center;color:#888}.empty b{display:block;color:#ddd;font-size:22px;margin-bottom:8px}.views{display:flex;gap:8px;padding:10px;border-top:1px solid #2b2e2e;overflow:auto}.view{min-width:105px;height:68px;background:#0b0d0d;color:#aaa;border:1px solid #303333;border-radius:6px}.view.active{border-color:#d64026;color:#fff}.tabs{display:flex;border-bottom:1px solid #2b2e2e}.tabs button{flex:1;padding:13px 7px;background:#101212;color:#aaa;border:0}.tabs button.active{color:#fff;border-bottom:3px solid #d64026}.tablewrap{max-height:480px;overflow:auto}table{width:100%;border-collapse:collapse}th,td{padding:10px 8px;border-bottom:1px solid #242727;text-align:left}th{color:#888;font-size:11px;position:sticky;top:0;background:#111414}tr{cursor:pointer}tbody tr:hover,tbody tr.sel{background:#35150f}.no{color:#b7a15a;font-weight:800}.stock{color:#35c76b;font-weight:700}.detail{padding:14px;border-top:1px solid #2b2e2e}.detailgrid{display:grid;grid-template-columns:140px 1fr;gap:14px}.partimg{min-height:140px;background:#0b0c0c;border:1px solid #2b2e2e;border-radius:7px;display:grid;place-items:center;color:#666}.partimg img{max-width:100%;max-height:140px}.spec{display:grid;grid-template-columns:90px 1fr;gap:7px;color:#aaa}.spec b{color:#fff}.actions{display:flex;gap:7px;margin-top:14px}.actions button{border:0;border-radius:6px;padding:11px 13px;color:#fff}.cart{background:#d64026;flex:1}.ghost{background:#222;border:1px solid #444!important}.qty{display:flex;border:1px solid #444;border-radius:6px;overflow:hidden}.qty button,.qty span{background:#111;color:#fff;border:0;padding:10px 14px}.chips{display:flex;gap:6px;flex-wrap:wrap}.chip{background:#151818;color:#aaa;border:1px solid #303333;border-radius:20px;padding:7px 10px}.chip.active{background:#3b130d;border-color:#d64026;color:#fff}.modal{position:fixed;inset:0;background:#000c;display:none;align-items:center;justify-content:center;padding:20px;z-index:20}.modal.show{display:flex}.modalbox{width:min(900px,100%);max-height:90vh;overflow:auto;background:#111414;border:1px solid #444;border-radius:10px}.modalhead{padding:14px;border-bottom:1px solid #333;display:flex;justify-content:space-between}.close{background:none;border:0;color:#aaa;font-size:24px}.modalbody{padding:16px}.cataloggrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px}.vehiclecard{padding:14px;background:#151818;color:#ddd;border:1px solid #303333;border-radius:7px;text-align:left}.vehiclecard:hover{border-color:#d64026}.vehiclecard b{display:block;color:#fff;font-size:17px}.vehiclecard small{color:#888}.toast{position:fixed;bottom:20px;right:20px;background:#eee;color:#111;padding:12px 16px;border-radius:7px;display:none;z-index:50}.toast.show{display:block}@media(max-width:1050px){.content{grid-template-columns:1fr}}@media(max-width:720px){.app{grid-template-columns:1fr}aside{display:none}.content{padding:8px}.detailgrid{grid-template-columns:1fr}.diagram{min-height:280px}th:nth-child(3),td:nth-child(3){display:none}}
+/* K9 Supabase production layer */
+*{box-sizing:border-box}
+button,input,select,textarea{font:inherit}
+.hidden{display:none!important}
+.k9-login{position:fixed;inset:0;background:#050606;z-index:1000;display:grid;place-items:center;padding:20px}
+.k9-loginbox{width:min(460px,100%);background:#101212;border:1px solid #383b3b;border-radius:14px;padding:26px;box-shadow:0 25px 80px #000}
+.k9-loginbox h1{margin:4px 0 6px;color:#b7a15a;font-size:30px}
+.k9-loginbox p{margin:0 0 20px;color:#999}
+.k9-field{display:grid;gap:7px;margin:12px 0}
+.k9-field label{font-size:12px;color:#999}
+.k9-field input,.k9-field select,.k9-field textarea{width:100%;background:#090b0b;color:#fff;border:1px solid #3a3d3d;border-radius:7px;padding:12px}
+.k9-btn{border:0;border-radius:7px;padding:11px 14px;cursor:pointer;color:#fff;background:#222}
+.k9-btn.primary{background:#d64026}
+.k9-btn.gold{background:#b7a15a;color:#111}
+.k9-btn.danger{background:#40130f}
+.k9-admin{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:10px 14px;border-bottom:1px solid #2b2e2e;background:#0c0e0e}
+.k9-status{font-size:12px;padding:6px 9px;border:1px solid #343737;border-radius:999px;color:#aaa;background:#111414}
+.k9-status.ok{color:#35c76b;border-color:#1d6b3c}.k9-status.bad{color:#ff8d7b;border-color:#743126}
+.k9-user{font-size:12px;color:#aaa;margin-left:auto;max-width:260px;overflow:hidden;text-overflow:ellipsis}
+.k9-actions{display:flex;gap:7px;flex-wrap:wrap}
+.k9-empty{padding:60px 20px;text-align:center;color:#777}
+.k9-empty b{display:block;color:#ddd;font-size:20px;margin-bottom:7px}
+.k9-formgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.k9-upload{border:1px dashed #4a4d4d;border-radius:8px;padding:14px;text-align:center;color:#999;background:#0b0d0d}
+.k9-upload input{width:100%}
+.k9-thumb{width:48px;height:48px;object-fit:cover;border-radius:6px;border:1px solid #333;background:#080909}
+.k9-rowimg{width:44px;height:44px;object-fit:cover;border-radius:5px;border:1px solid #333}
+.k9-note{font-size:11px;color:#777;line-height:1.5}
+.k9-modal{position:fixed;inset:0;background:#000c;z-index:500;display:none;align-items:center;justify-content:center;padding:18px}
+.k9-modal.show{display:flex}
+.k9-modalbox{width:min(760px,100%);max-height:92vh;overflow:auto;background:#111414;border:1px solid #444;border-radius:10px}
+.k9-modalhead{padding:14px 16px;border-bottom:1px solid #333;display:flex;justify-content:space-between;align-items:center}
+.k9-modalbody{padding:16px}
+.k9-close{background:none;border:0;color:#aaa;font-size:26px;cursor:pointer}
+@media(max-width:720px){.k9-formgrid{grid-template-columns:1fr}.k9-user{margin-left:0;width:100%}}
+
+.k9-positiongrid{display:grid;grid-template-columns:100px 1fr 1fr;gap:10px}
+.k9-history{max-height:360px;overflow:auto}
+.k9-history-item{display:grid;grid-template-columns:90px 70px 1fr 90px;gap:8px;padding:10px 4px;border-bottom:1px solid #242727;align-items:center}
+.k9-history-item .in{color:#35c76b;font-weight:800}.k9-history-item .out{color:#ff8d7b;font-weight:800}
+.k9-small{font-size:11px;color:#777}
+@media(max-width:720px){.k9-positiongrid{grid-template-columns:1fr 1fr}.k9-positiongrid>div:first-child{grid-column:1/-1}.k9-history-item{grid-template-columns:75px 55px 1fr}}
+</style></head>
+<body>
+<div id="loginScreen" class="k9-login">
+  <div class="k9-loginbox">
+    <div style="font-size:12px;color:#888;letter-spacing:3px">K9 AUTO PARTS</div>
+    <h1>Mercedes-Benz Parts</h1>
+    <p>Private inventory catalog · Supabase</p>
+    <form id="loginForm">
+      <div class="k9-field"><label>Email</label><input id="loginEmail" type="email" autocomplete="username" required></div>
+      <div class="k9-field"><label>Password</label><input id="loginPassword" type="password" autocomplete="current-password" required></div>
+      <button class="k9-btn primary" style="width:100%" type="submit">Sign in</button>
+    </form>
+    <div id="loginMsg" class="k9-note" style="margin-top:12px"></div>
+  </div>
+</div>
+
+<div id="app" class="app hidden">
+  <aside>
+    <div class="logo">K9<small>AUTO PARTS</small></div>
+    <div class="nav">
+      <button class="active" data-system="">🚗 Vehicle Select</button>
+      <button data-system="Body">▣ Body</button><button data-system="Engine">⚙ Engine</button>
+      <button data-system="Transmission">◈ Transmission</button><button data-system="Suspension">⟡ Suspension</button>
+      <button data-system="Braking">◉ Braking</button><button data-system="Steering">◎ Steering</button>
+      <button data-system="Electrical">▱ Electrical</button><button data-system="Interior">▤ Interior</button>
+      <button data-system="Exterior">▥ Exterior</button><button data-system="Cooling">◌ Cooling</button>
+      <button data-system="Fuel System">⛽ Fuel System</button>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <div class="crumb" id="crumb">K9 Auto Parts</div>
+      <div class="toolbar">
+        <input class="search" id="search" placeholder="Search part name, OEM number, or keyword…">
+        <button class="lang" id="langBtn">TH / EN</button>
+        <button class="lang" id="changeVehicleBtn">🚗 Change Vehicle</button>
+        <button class="lang" id="addPartBtn">＋ Add Part</button>
+        <button class="lang" id="logoutBtn">Logout</button>
+      </div>
+    </header>
+
+    <div class="k9-admin">
+      <span id="status" class="k9-status">Connecting…</span>
+      <span id="userEmail" class="k9-user"></span>
+    </div>
+
+    <div class="sectionbar">
+      <select id="classSel" class="select"></select>
+      <select id="chassisSel" class="select"></select>
+      <select id="systemSel" class="select"></select>
+      <select id="diagramSel" class="select"></select>
+    </div>
+
+    <div class="content">
+      <section class="panel">
+        <div class="panelhead">
+          <div><div class="title" id="diagramTitle">Select a vehicle</div><div class="sub">Exploded View · <span id="fitment">—</span></div></div>
+          <span>K9 CATALOG</span>
+        </div>
+        <div class="diagram" id="diagram"><div class="k9-empty"><b>No diagram selected</b>Select a vehicle and diagram.</div></div>
+        <div class="views">
+          <button class="view active" data-view="front">Front View</button>
+          <button class="view" data-view="rear">Rear View</button>
+          <button class="view" data-view="left">Left View</button>
+          <button class="view" data-view="right">Right View</button>
+          <button class="view" data-view="top">Top View</button>
+          <button class="view" data-view="oem">OEM Diagram</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="tabs">
+          <button class="active">Parts List</button><button>Part Detail</button><button>Stock / History</button><button>Notes</button>
+        </div>
+        <div class="tablewrap">
+          <table>
+            <thead><tr><th>No.</th><th>Part</th><th>OEM</th><th>Stock</th></tr></thead>
+            <tbody id="rows"></tbody>
+          </table>
+        </div>
+        <div class="detail" id="detail"><div class="k9-empty"><b>No part selected</b>Choose a numbered position or a row.</div></div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<div id="vehicleModal" class="k9-modal">
+  <div class="k9-modalbox">
+    <div class="k9-modalhead"><b>Mercedes-Benz Vehicle Catalog</b><button class="k9-close" data-close="vehicleModal">×</button></div>
+    <div class="k9-modalbody"><div class="cataloggrid" id="catalog"></div></div>
+  </div>
+</div>
+
+<div id="partModal" class="k9-modal">
+  <div class="k9-modalbox">
+    <div class="k9-modalhead"><b>Add / Edit Part</b><button class="k9-close" data-close="partModal">×</button></div>
+    <div class="k9-modalbody">
+      <form id="partForm">
+        <input id="partId" type="hidden">
+        <div class="k9-formgrid">
+          <div class="k9-field"><label>Part name (English)</label><input id="partNameEn" required></div>
+          <div class="k9-field"><label>ชื่ออะไหล่ (ไทย)</label><input id="partNameTh"></div>
+          <div class="k9-field"><label>OEM number (optional)</label><input id="partOem"></div>
+          <div class="k9-field"><label>Rack / Bin</label><input id="partRack"></div>
+          <div class="k9-field"><label>Material</label><input id="partMaterial"></div>
+          <div class="k9-field"><label>Notes</label><input id="partNotes"></div>
+        </div>
+        <div class="k9-field"><label>Diagram position</label>
+          <div class="k9-positiongrid">
+            <div><label>No.</label><input id="partPosition" type="number" min="1" step="1"></div>
+            <div><label>X (%)</label><input id="partX" type="number" min="0" max="100" step="0.1" value="50"></div>
+            <div><label>Y (%)</label><input id="partY" type="number" min="0" max="100" step="0.1" value="50"></div>
+          </div>
+          <div class="k9-note">ตำแหน่งหมายเลขบน Blueprint ของ Diagram ปัจจุบัน</div>
+        </div>
+        <div class="k9-field"><label>Part image</label><div class="k9-upload"><input id="partImage" type="file" accept="image/*"><div class="k9-note">Stored privately in Supabase Storage → k9-assets/parts/</div></div></div>
+        <div class="k9-actions">
+          <button class="k9-btn primary" type="submit">Save Part</button>
+          <button class="k9-btn" type="button" data-close="partModal">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div id="stockModal" class="k9-modal">
+  <div class="k9-modalbox">
+    <div class="k9-modalhead"><b id="stockTitle">Stock Transaction</b><button class="k9-close" data-close="stockModal">×</button></div>
+    <div class="k9-modalbody">
+      <form id="stockForm">
+        <input id="stockPartId" type="hidden">
+        <div class="k9-field"><label>Transaction</label><select id="stockType"><option value="IN">IN · Receive</option><option value="OUT">OUT · Issue</option></select></div>
+        <div class="k9-field"><label>Quantity</label><input id="stockQty" type="number" min="1" step="1" value="1" required></div>
+        <div class="k9-field"><label>Note</label><textarea id="stockNote" rows="3" placeholder="Optional"></textarea></div>
+        <div class="k9-field"><label>Reference</label><input id="stockReference" placeholder="Invoice / PO / document no. (optional)"></div>
+        <button class="k9-btn primary" type="submit">Confirm Transaction</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+/* ============================================================
+   K9 CONFIG
+   Paste ONLY your Supabase Project URL + Publishable key here.
+   Never put Database Password / Secret key / Service Role key here.
+   ============================================================ */
+const SUPABASE_URL = "PASTE_YOUR_SUPABASE_PROJECT_URL_HERE";
+const SUPABASE_PUBLISHABLE_KEY = "PASTE_YOUR_SUPABASE_PUBLISHABLE_KEY_HERE";
+
+const $ = id => document.getElementById(id);
+const state = {
+  user:null, lang:"th", models:[], systems:[], diagrams:[], parts:[],
+  selectedModel:null, selectedSystem:null, selectedDiagram:null, selectedPart:null,
+  currentView:"front", activeTab:"parts", signedUrls:new Map()
+};
+
+let sb = null;
+if (!SUPABASE_URL.startsWith("PASTE_") && !SUPABASE_PUBLISHABLE_KEY.startsWith("PASTE_")) {
+  sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+}
+
+function toast(msg){
+  $("toast").textContent=msg;
+  $("toast").classList.add("show");
+  setTimeout(()=>$("toast").classList.remove("show"),2400);
+}
+function setStatus(msg,ok=true){
+  $("status").textContent=msg;
+  $("status").className="k9-status "+(ok?"ok":"bad");
+}
+function esc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function slug(s){return String(s||"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");}
+
+async function assetUrl(path){
+  if(!path) return "";
+  if(/^https?:\/\//i.test(path)) return path;
+  if(state.signedUrls.has(path)) return state.signedUrls.get(path);
+  const {data,error}=await sb.storage.from("k9-assets").createSignedUrl(path,3600);
+  if(error){console.warn("Storage signed URL:",error.message);return "";}
+  state.signedUrls.set(path,data.signedUrl);
+  return data.signedUrl;
+}
+
+async function boot(){
+  if(!sb){
+    $("loginScreen").classList.remove("hidden");
+    $("loginMsg").textContent="ใส่ Project URL และ Publishable key ในส่วน K9 CONFIG ก่อนใช้งาน";
+    return;
+  }
+  const {data:{session}} = await sb.auth.getSession();
+  if(session) await enter(session);
+  sb.auth.onAuthStateChange(async (_event,session)=>{
+    if(session) await enter(session);
+    else{
+      state.user=null;
+      $("app").classList.add("hidden");
+      $("loginScreen").classList.remove("hidden");
+    }
+  });
+}
+
+async function enter(session){
+  state.user=session.user;
+  $("loginScreen").classList.add("hidden");
+  $("app").classList.remove("hidden");
+  $("userEmail").textContent=session.user.email||"";
+  setStatus("Connected");
+  await loadAll();
+}
+
+async function login(e){
+  e.preventDefault();
+  if(!sb){$("loginMsg").textContent="กรุณาใส่ Supabase config ก่อน";return;}
+  $("loginMsg").textContent="Signing in…";
+  const {error}=await sb.auth.signInWithPassword({
+    email:$("loginEmail").value.trim(),
+    password:$("loginPassword").value
+  });
+  if(error) $("loginMsg").textContent=error.message;
+}
+async function logout(){if(sb) await sb.auth.signOut();}
+
+async function loadAll(){
+  setStatus("Loading…");
+  const [m,s] = await Promise.all([
+    sb.from("vehicle_models").select("*").order("class_name").order("chassis"),
+    sb.from("systems").select("*").order("name")
+  ]);
+  if(m.error){setStatus(m.error.message,false);return}
+  if(s.error){setStatus(s.error.message,false);return}
+  state.models=m.data||[];
+  state.systems=s.data||[];
+  fillClass();
+  await refreshCatalog();
+  setStatus("Connected");
+}
+
+function fillClass(){
+  const classes=[...new Set(state.models.map(x=>x.class_name).filter(Boolean))];
+  $("classSel").innerHTML='<option value="">Class</option>'+classes.map(x=>`<option value="${esc(x)}">${esc(x)}</option>`).join("");
+  $("chassisSel").innerHTML='<option value="">Chassis</option>';
+  $("systemSel").innerHTML='<option value="">System</option>';
+  $("diagramSel").innerHTML='<option value="">Diagram</option>';
+}
+function fillChassis(){
+  const c=$("classSel").value;
+  const rows=state.models.filter(x=>x.class_name===c);
+  $("chassisSel").innerHTML='<option value="">Chassis</option>'+rows.map(x=>`<option value="${x.id}">${esc(x.chassis)}${x.model_name?' · '+esc(x.model_name):''}</option>`).join("");
+  $("systemSel").innerHTML='<option value="">System</option>';
+  $("diagramSel").innerHTML='<option value="">Diagram</option>';
+  state.selectedModel=null; state.selectedDiagram=null; state.parts=[];
+  renderRows();
+  renderDiagram();
+  $("detail").innerHTML='<div class="k9-empty"><b>No part selected</b>Choose a vehicle and diagram.</div>';
+}
+async function fillSystems(){
+  $("systemSel").innerHTML='<option value="">System</option>'+state.systems.map(x=>`<option value="${x.id}">${esc(state.lang==="th"?(x.name_th||x.name):(x.name||x.name_th))}</option>`).join("");
+  $("diagramSel").innerHTML='<option value="">Diagram</option>';
+}
+async function fillDiagrams(){
+  const model=$("chassisSel").value, system=$("systemSel").value;
+  if(!model||!system){$("diagramSel").innerHTML='<option value="">Diagram</option>';return}
+  const {data,error}=await sb.from("diagrams").select("*").eq("vehicle_model_id",model).eq("system_id",system).order("title");
+  if(error){toast(error.message);return}
+  state.diagrams=data||[];
+  $("diagramSel").innerHTML='<option value="">Diagram</option>'+state.diagrams.map(x=>`<option value="${x.id}">${esc(state.lang==="th"?(x.title_th||x.title):(x.title||x.title_th))}</option>`).join("");
+}
+
+async function loadDiagram(id){
+  state.selectedDiagram=state.diagrams.find(x=>x.id===id)||null;
+  state.selectedPart=null;
+  if(!state.selectedDiagram){
+    $("diagram").innerHTML='<div class="k9-empty"><b>No diagram selected</b>Select a diagram.</div>';
+    $("rows").innerHTML="";
+    $("detail").innerHTML='<div class="k9-empty"><b>No part selected</b>Choose a numbered position or a row.</div>';
+    return;
+  }
+  $("diagramTitle").textContent=state.lang==="th"?(state.selectedDiagram.title_th||state.selectedDiagram.title):(state.selectedDiagram.title||state.selectedDiagram.title_th);
+  const model=state.models.find(x=>x.id===state.selectedDiagram.vehicle_model_id);
+  $("fitment").textContent=model ? `${model.class_name||""} ${model.chassis||""}${model.model_name?" · "+model.model_name:""}` : "—";
+
+  const {data,error}=await sb.from("diagram_parts")
+    .select("*, parts(*)")
+    .eq("diagram_id",id)
+    .order("position_no");
+  if(error){toast(error.message);return}
+  state.parts=(data||[]).map(x=>({...x.parts,position_no:x.position_no,xpos:x.xpos,ypos:x.ypos,diagram_part_id:x.id})).filter(Boolean);
+  await renderDiagram();
+  renderRows();
+  if(state.activeTab==="parts") renderPartDetail();
+  else if(state.activeTab==="history") renderHistory();
+  else renderNotes();
+}
+
+async function renderDiagram(){
+  const d=state.selectedDiagram;
+  const url=await assetUrl(d.image_url||"");
+  const img=url?`<img src="${esc(url)}" alt="Blueprint">`:
+    `<div class="k9-empty"><b>No blueprint image</b><div class="small">Upload a blueprint image to Supabase Storage and save its storage path in the diagram.</div></div>`;
+  $("diagram").innerHTML=img+'<div class="hot" id="hotspots"></div>';
+  const hs=$("hotspots");
+  state.parts.forEach(p=>{
+    const b=document.createElement("button");
+    b.className="hs"; b.dataset.id=p.id; b.textContent=p.position_no||"";
+    b.style.left=(p.xpos??50)+"%"; b.style.top=(p.ypos??50)+"%";
+    b.title=p.name_en||p.name_th||"";
+    b.onclick=()=>selectPart(p.id);
+    hs.appendChild(b);
+  });
+}
+
+function renderRows(){
+  const q=$("search").value.trim().toLowerCase();
+  const rows=state.parts.filter(p=>!q || [
+    p.name_en,p.name_th,p.oem_number,p.rack,p.bin,p.description
+  ].some(v=>String(v||"").toLowerCase().includes(q)));
+  $("rows").innerHTML=rows.map(p=>`
+    <tr data-id="${p.id}" class="${state.selectedPart?.id===p.id?'sel':''}">
+      <td class="no">${esc(p.position_no||"—")}</td>
+      <td>${esc(state.lang==="th"?(p.name_th||p.name_en):(p.name_en||p.name_th))}</td>
+      <td>${esc(p.oem_number||"—")}</td>
+      <td class="stock">${esc(p.stock_qty??0)}</td>
+    </tr>`).join("");
+  document.querySelectorAll("#rows tr").forEach(tr=>tr.onclick=()=>selectPart(tr.dataset.id));
+}
+
+async function selectPart(id){
+  const p=state.parts.find(x=>String(x.id)===String(id));
+  if(!p)return;
+  state.selectedPart=p;
+  document.querySelectorAll(".hs").forEach(x=>x.classList.toggle("sel",String(x.dataset.id)===String(id)));
+  if(state.activeTab==="parts") await renderPartDetail();
+  else if(state.activeTab==="history") await renderHistory();
+  else renderNotes();
+  renderRows();
+}
+
+async function renderPartDetail(){
+  const p=state.selectedPart;
+  if(!p){
+    $("detail").innerHTML='<div class="k9-empty"><b>No part selected</b>Choose a numbered position or a row.</div>';
+    return;
+  }
+  const imageUrl=await assetUrl(p.image_url||"");
+  $("detail").innerHTML=`
+    <div class="detailgrid">
+      <div class="partimg">${imageUrl?`<img src="${esc(imageUrl)}" alt="">`:"<span>No image</span>"}</div>
+      <div>
+        <h3 style="margin:0 0 5px">${esc(state.lang==="th"?(p.name_th||p.name_en):(p.name_en||p.name_th))}</h3>
+        <div class="sub">${esc(p.name_en||"")}</div>
+        <div class="spec" style="margin-top:10px">
+          <span>OEM</span><b>${esc(p.oem_number||"—")}</b>
+          <span>Position</span><b>${esc(p.position_no||"—")}</b>
+          <span>Rack</span><b>${esc(p.rack||"—")}</b>
+          <span>Bin</span><b>${esc(p.bin||"—")}</b>
+          <span>Unit</span><b>${esc(p.unit||"pcs")}</b>
+          <span>Stock</span><b>${esc(p.stock_qty??0)}</b>
+        </div>
+        <div class="actions">
+          <button class="cart" id="stockInBtn">＋ Stock IN</button>
+          <button class="ghost" id="stockOutBtn">− Stock OUT</button>
+          <button class="ghost" id="editPartBtn">Edit</button>
+        </div>
+      </div>
+    </div>
+    ${p.description?`<div class="k9-note" style="margin-top:12px">${esc(p.description)}</div>`:""}`;
+  $("stockInBtn").onclick=()=>openStock("IN",p);
+  $("stockOutBtn").onclick=()=>openStock("OUT",p);
+  $("editPartBtn").onclick=()=>openPart(p);
+}
+
+async function renderHistory(){
+  const p=state.selectedPart;
+  if(!p){$("detail").innerHTML='<div class="k9-empty"><b>No part selected</b>Select a part first.</div>';return}
+  const {data,error}=await sb.from("inventory_transactions")
+    .select("id,transaction_type,quantity,note,reference,created_by,created_at")
+    .eq("part_id",p.id).order("created_at",{ascending:false}).limit(100);
+  if(error){toast(error.message);return}
+  const items=data||[];
+  $("detail").innerHTML=`
+    <div style="padding:12px 0 6px"><b>Stock / History</b>
+      <div class="k9-note">${esc(p.name_en||p.name_th||"")} · Current stock: ${esc(p.stock_qty??0)}</div>
+    </div>
+    <div class="k9-history">
+      ${items.length?items.map(x=>`
+        <div class="k9-history-item">
+          <span class="${x.transaction_type==="IN"?"in":"out"}">${esc(x.transaction_type)}</span>
+          <b>${esc(x.quantity)}</b>
+          <span>${esc(x.note||x.reference||"—")}</span>
+          <span class="k9-small">${new Date(x.created_at).toLocaleString()}</span>
+        </div>`).join(""):`<div class="k9-empty">No transactions yet.</div>`}
+    </div>`;
+}
+
+function renderNotes(){
+  const p=state.selectedPart;
+  $("detail").innerHTML=p?`
+    <div style="padding:14px">
+      <b>Notes</b>
+      <div class="k9-note" style="margin-top:10px;white-space:pre-wrap">${esc(p.description||"No notes.")}</div>
+      <div class="actions"><button class="ghost" id="editNotesBtn">Edit Part</button></div>
+    </div>`:
+    '<div class="k9-empty"><b>No part selected</b>Select a part first.</div>';
+  if(p) $("editNotesBtn").onclick=()=>openPart(p);
+}
+
+function setTab(tab){
+  state.activeTab=tab;
+  document.querySelectorAll(".tabs button").forEach((b,i)=>{
+    b.classList.toggle("active",["parts","detail","history","notes"][i]===tab);
+  });
+  if(tab==="parts"){renderRows();renderPartDetail();}
+  if(tab==="detail"){renderPartDetail();}
+  if(tab==="history"){renderHistory();}
+  if(tab==="notes"){renderNotes();}
+}
+
+function openStock(type,p){
+  $("stockPartId").value=p.id;
+  $("stockType").value=type;
+  $("stockQty").value=1;
+  $("stockNote").value="";
+  $("stockReference").value="";
+  $("stockTitle").textContent=`${type==="IN"?"Stock IN":"Stock OUT"} · ${p.name_en||p.name_th||""}`;
+  $("stockModal").classList.add("show");
+}
+
+async function stockSubmit(e){
+  e.preventDefault();
+  const partId=$("stockPartId").value, type=$("stockType").value, qty=Number($("stockQty").value);
+  if(!partId||qty<1)return;
+  const {data,error}=await sb.rpc("k9_stock_transaction",{
+    p_part_id:partId,
+    p_transaction_type:type,
+    p_quantity:qty,
+    p_note:$("stockNote").value.trim()||null,
+    p_reference:$("stockReference").value.trim()||null
+  });
+  if(error){toast(error.message);return}
+  $("stockModal").classList.remove("show");
+  toast(`Stock updated → ${data}`);
+  await loadDiagram($("diagramSel").value);
+  if(state.selectedPart) await selectPart(partId);
+}
+
+function openPart(p=null){
+  $("partId").value=p?.id||"";
+  $("partNameEn").value=p?.name_en||"";
+  $("partNameTh").value=p?.name_th||"";
+  $("partOem").value=p?.oem_number||"";
+  $("partRack").value=p?.rack||"";
+  $("partMaterial").value=p?.material||"";
+  $("partNotes").value=p?.description||"";
+  $("partPosition").value=p?.position_no||"";
+  $("partX").value=p?.xpos??50;
+  $("partY").value=p?.ypos??50;
+  $("partImage").value="";
+  $("partModal").classList.add("show");
+}
+
+async function savePart(e){
+  e.preventDefault();
+  if(!$("chassisSel").value){toast("Select a vehicle first");return}
+  if(!state.selectedDiagram){toast("Select a diagram first");return}
+
+  const id=$("partId").value||null;
+  let imagePath=null;
+  const file=$("partImage").files[0];
+
+  if(file){
+    const safe=file.name.replace(/[^a-zA-Z0-9._-]/g,"_");
+    const path=`parts/${$("chassisSel").value}/${crypto.randomUUID()}_${safe}`;
+    const up=await sb.storage.from("k9-assets").upload(path,file,{upsert:false,contentType:file.type});
+    if(up.error){toast(up.error.message);return}
+    imagePath=path;
+  }
+
+  const payload={
+    name_en:$("partNameEn").value.trim(),
+    name_th:$("partNameTh").value.trim()||null,
+    oem_number:$("partOem").value.trim()||null,
+    rack:$("partRack").value.trim()||null,
+    material:$("partMaterial").value.trim()||null,
+    description:$("partNotes").value.trim()||null
+  };
+  if(imagePath) payload.image_url=imagePath;
+
+  let res;
+  if(id) res=await sb.from("parts").update(payload).eq("id",id).select().single();
+  else res=await sb.from("parts").insert(payload).select().single();
+  if(res.error){toast(res.error.message);return}
+
+  const pos=Number($("partPosition").value);
+  const xpos=Math.max(0,Math.min(100,Number($("partX").value||50)));
+  const ypos=Math.max(0,Math.min(100,Number($("partY").value||50)));
+
+  if(id){
+    const old=state.parts.find(x=>x.id===id);
+    if(old?.diagram_part_id){
+      const upd=await sb.from("diagram_parts").update({
+        position_no:pos||old.position_no,xpos,ypos
+      }).eq("id",old.diagram_part_id);
+      if(upd.error){toast(upd.error.message);return}
+    }
+  }else{
+    const maxPos=state.parts.reduce((n,p)=>Math.max(n,Number(p.position_no)||0),0)+1;
+    const link=await sb.from("diagram_parts").insert({
+      diagram_id:state.selectedDiagram.id,
+      part_id:res.data.id,
+      position_no:pos||maxPos,
+      xpos,ypos
+    });
+    if(link.error){toast(link.error.message);return}
+  }
+
+  $("partModal").classList.remove("show");
+  toast("Part saved");
+  await loadDiagram(state.selectedDiagram.id);
+  await selectPart(res.data.id);
+}
+
+async function refreshCatalog(){
+  $("catalog").innerHTML=state.models.map(m=>`
+    <button class="vehiclecard" data-model="${m.id}">
+      <b>${esc(m.class_name||"")}</b>
+      <small>${esc(m.chassis||"")} · ${esc(m.model_name||"")}</small>
+      <div style="margin-top:7px;color:#888">${esc(m.engine||"")}</div>
+    </button>`).join("");
+  document.querySelectorAll("[data-model]").forEach(b=>b.onclick=async()=>{
+    $("chassisSel").value=b.dataset.model;
+    $("vehicleModal").classList.remove("show");
+    await loadModelSelection();
+  });
+}
+
+async function loadModelSelection(){
+  const m=state.models.find(x=>String(x.id)===String($("chassisSel").value));
+  if(!m)return;
+  state.selectedModel=m;
+  $("classSel").value=m.class_name||"";
+  $("crumb").textContent=`Mercedes-Benz › ${m.class_name||""} ${m.chassis||""}${m.model_name?" · "+m.model_name:""}`;
+  await fillSystems();
+}
+
+function openVehicles(){$("vehicleModal").classList.add("show");refreshCatalog();}
+function closeModals(){document.querySelectorAll(".k9-modal").forEach(x=>x.classList.remove("show"));}
+
+$("loginForm").addEventListener("submit",login);
+$("stockForm").addEventListener("submit",stockSubmit);
+$("partForm").addEventListener("submit",savePart);
+$("logoutBtn").onclick=logout;
+$("changeVehicleBtn").onclick=openVehicles;
+$("addPartBtn").onclick=()=>openPart();
+$("search").oninput=renderRows;
+$("langBtn").onclick=async()=>{
+  state.lang=state.lang==="th"?"en":"th";
+  await fillSystems();
+  if(state.selectedModel) $("classSel").value=state.selectedModel.class_name||"";
+  if(state.selectedDiagram) await loadDiagram(state.selectedDiagram.id);
+};
+$("classSel").onchange=fillChassis;
+$("chassisSel").onchange=loadModelSelection;
+$("systemSel").onchange=fillDiagrams;
+$("diagramSel").onchange=()=>loadDiagram($("diagramSel").value);
+document.querySelectorAll(".tabs button").forEach((b,i)=>b.onclick=()=>setTab(["parts","detail","history","notes"][i]));
+document.querySelectorAll("[data-close]").forEach(b=>b.onclick=()=>$(b.dataset.close).classList.remove("show"));
+document.querySelectorAll(".nav button").forEach(b=>b.onclick=async()=>{
+  document.querySelectorAll(".nav button").forEach(x=>x.classList.remove("active"));
+  b.classList.add("active");
+  if(b.dataset.system){
+    const sys=state.systems.find(s=>s.name===b.dataset.system || s.name_th===b.dataset.system);
+    if(sys){
+      if(!$("chassisSel").value){toast("Select a vehicle first");return}
+      $("systemSel").value=sys.id;
+      await fillDiagrams();
+    }
+  }
+});
+
+boot();
+</script>
+</body></html>
